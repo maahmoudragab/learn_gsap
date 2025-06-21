@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // ? Tween
 /** from & to
 document.addEventListener("DOMContentLoaded", () => {
-	
-	gsap.from("img", { // هبتدا من 
+
+	gsap.from("img", { // هبتدا من
 	duration: 2, // Animation duration in seconds
 		opacity: 0,
 		y: 100,
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	})
 
-	// gsap.from("path", { // هبتدا من 
+	// gsap.from("path", { // هبتدا من
 	// 	duration: 1,
 	// 	opacity: 0,
 	// 	y: 100,
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			fill: "white",
 		}
 	})
-	
+
 })
 */
 
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("click", () => {
 	gsap.fromTo("path", {
 		opacity: 0,
-		y: -50,	
+		y: -50,
 		attr: {
 			fill: "black",
 		}
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// 	// ease: CustomEase.create("custom", "M0,0 C0.083,0.294 0.531,0.026 0.797,0.216 0.928,0.309 0.752,1 1,1 "), // custom ease
 	// })
 
-	// * EASE CustomBounce 
+	// * EASE CustomBounce
 	// // إنشاء Bounce مخصص
 	// CustomBounce.create("myBounce", {
 	// 	strength: 0.6,
@@ -167,17 +167,56 @@ tl.from("button", {
 	opacity: 0,
 }, "-=25%") // +=2 يعني بعد 2 ثانية من نهاية الحركة السابقة
 
-"+=1"         // 1 ثانية بعد نهاية التايملاين → بتعمل فجوة بين الأنيميشينات 
-"-=1"         // 1 ثانية قبل نهاية التايملاين → بيخلي الأنيميشين يركب على اللي قبله 
-"myLabel+=2"  // 2 ثانية بعد العلامة اللي اسمها myLabel 
+"+=1"         // 1 ثانية بعد نهاية التايملاين → بتعمل فجوة بين الأنيميشينات
+"-=1"         // 1 ثانية قبل نهاية التايملاين → بيخلي الأنيميشين يركب على اللي قبله
+"myLabel+=2"  // 2 ثانية بعد العلامة اللي اسمها myLabel
 
-"<+=3"        // 3 ثواني بعد بداية الأنيميشين اللي قبله 
-"<3"          // نفس <+=3 بالضبط → + مفهومة ضمنيًا بعد < 
-">-0.5"       // نص ثانية قبل نهاية الأنيميشين اللي قبله 
+"<+=3"        // 3 ثواني بعد بداية الأنيميشين اللي قبله
+"<3"          // نفس <+=3 بالضبط → + مفهومة ضمنيًا بعد <
+">-0.5"       // نص ثانية قبل نهاية الأنيميشين اللي قبله
 
-"-=25%"       // ابدأ قبل نهاية التايملاين بـ 25٪ من مدة الأنيميشين ده 
-"+=50%"       // ابدأ بعد نهاية التايملاين بـ 50٪ من مدة الأنيميشين → فجوة 
-"<25%"        // 25٪ من بداية الأنيميشين اللي قبله 
-"<+=25%"      // 25٪ من مدة الأنيميشين الحالي بعد بداية الأنيميشين اللي قبله 
-"myLabel+=30%" // 30٪ من مدة الأنيميشين الحالي بعد العلامة myLabel 
+"-=25%"       // ابدأ قبل نهاية التايملاين بـ 25٪ من مدة الأنيميشين ده
+"+=50%"       // ابدأ بعد نهاية التايملاين بـ 50٪ من مدة الأنيميشين → فجوة
+"<25%"        // 25٪ من بداية الأنيميشين اللي قبله
+"<+=25%"      // 25٪ من مدة الأنيميشين الحالي بعد بداية الأنيميشين اللي قبله
+"myLabel+=30%" // 30٪ من مدة الأنيميشين الحالي بعد العلامة myLabel
+*/
+
+// todo ======== LESSON 06 ======== //
+/** 
+// ? Timeline (Part 2)
+document.addEventListener("DOMContentLoaded", () => {
+	const tl = gsap.timeline();
+
+	tl.from("h1", {
+		autoAlpha: 0, // opacity: 0 + visibility: hidden To opacity: 1 + visibility: visible
+		y: 100,
+		duration: 2,
+		onUpdate: () => { // Callback function on every update of the animation
+			console.log("Animation is updating!");
+		},
+	})
+	tl.from("p", {
+		autoAlpha: 0,
+		y: -100,
+		duration: 2,
+		onComplate: () => { // Callback function when the animation is completed
+			console.log("Paragraph animation completed!")
+		}
+	}, "<")
+	tl.from("a", {
+		scale: 0,
+		repeat: 2, // تكرار الحركة مرة واحدة
+		ease: "elastic",
+		duration: 2,
+		onStart: () => { // Callback function when the animation starts
+			console.log("Animation started!")
+		},
+		// yoyo: true, // الحركة في الاتجاهين
+		onRepeat: () => { // Callback function when the animation repeats
+			console.log("repeat animation!")
+		}
+	}, "1")// يعني بعد ثانيه من بدايه التايملاين
+
+})
 */
