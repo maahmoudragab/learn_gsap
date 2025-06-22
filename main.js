@@ -183,8 +183,8 @@ tl.from("button", {
 */
 
 // todo ======== LESSON 06 ======== //
-/** 
 // ? Timeline (Part 2)
+/**
 document.addEventListener("DOMContentLoaded", () => {
 	const tl = gsap.timeline();
 
@@ -220,3 +220,108 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 */
+
+// todo ======== LESSON 07 ======== //
+// ? FOUC (Flash of Unstyled Content) & IRR (Inertial Rethink)
+/**
+document.addEventListener("DOMContentLoaded", () => {
+	// يجهز DOM بيشغل الكود بعد ما الـ  DOMContentLoaded
+	// بس مش الحل الوحيد FOUC ممكن يساعد في مشكلة
+	// autoAlpha: 0; بعد كدا بستخدم حاجه اسمها  html علي العنصر في visible الحل الافضل بستخدام ال
+	// ودي هتمنع مشكله الفلاش نهائي
+	gsap.registerPlugin(GSDevTools)
+	// Rejester  GSDevTools plugin
+
+	gsap.from("img", {
+		duration: .5,
+		autoAlpha: 0, // opacity: 0 + visibility: hidden
+	})
+
+	const tl = gsap.timeline()
+
+	tl.from(".red", {
+		opacity: 0,
+	})
+	tl.from(".green", {
+		opacity: 0,
+	})
+	tl.from(".blue", {
+		opacity: 0,
+	})
+	// الفكره بقا ان لما اجي اعمل انيمشن  تاني لعنصر موجود اصلا في التايملاين
+	// opacity 0 الي opacity 0 فا ازاي هحوله من opacity 0 هيا هنا شايفه انه اصلا العنصر
+	// tl.from(".red", {
+	// 	opacity: 0,
+	// فعشان احل المشكه دي بستعمل
+	// immediateRender: false, // هيشغل الانيميشن كانه اول مره في التايملاين عادي
+	// })
+
+	// fromTO حل تاني بال
+	// tl.fromTo(".red", {
+	// 	opacity: 0,
+	// }, {
+	// 	opacity: 1,
+	// })
+
+	// دي بتظهر شريط تحكم للانيميشان
+	GSDevTools.create()
+})
+*/
+
+// todo ======== LESSON 08 ======== //
+// ? MatchMedia = Responsive Animations
+/**
+document.addEventListener("DOMContentLoaded", () => {
+	const mm = gsap.matchMedia()
+	// 1
+	// mm.add('(min-width: 700px)', () => {
+	// 	gsap.from("img", {
+	// 		autoAlpha: 0,
+	// 		rotate: 360,
+	// 		duration: 2,
+	// 		ease: "back"
+	// 	})
+	// })
+
+	// 2 Condtions
+	// mm.add({
+	// 	isMobile: "(min-width: 701px)",
+	// 	isDesktop: "(max-width: 700px)",
+	// }, (context) => {
+	// 	const { isMobile, isDesktop } = context.conditions;
+	// 	gsap.from("img", {
+	// 		autoAlpha: 0,
+	// 		rotate:isMobile ? 360 : -360,
+	// 		duration: 2,
+	// 		ease: "back"
+	// 	})
+	// })
+
+	// event listener
+	// mm.add('(min-width: 700px)', (context) => {
+
+	// 	context.add("spin", () => {
+	// 		gsap.fromTo(".con img", {
+	// 			rotate: 0,
+	// 		}, {
+	// 			rotate: 360,
+	// 			duration: 2,
+	// 			ease: "back"
+	// 		})
+	// 	})
+
+	// 	// المشكله بقا اني حته لو مش في الشاشه المحدده ودوست كليك هيشتغل برضو الانيميشن
+	// 	// context.add فالحل هو اني استخدم ال
+	// 	window.addEventListener("click", context.spin)
+	// 	return () => {
+	// 		window.removeEventListener("click",context.spin)
+	// 	}
+	// })
+})
+*/
+
+// todo ======== LESSON 09 ======== //
+// ? introduction to Plugins
+
+// todo ======== LESSON 10 ======== //
+// ? ScrollTrigger (Part 1)
