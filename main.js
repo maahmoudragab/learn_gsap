@@ -325,3 +325,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // todo ======== LESSON 10 ======== //
 // ? ScrollTrigger (Part 1)
+/**
+- اقدر استخدمه في اي وقت و في اي مكان
+
+document.addEventListener("DOMContentLoaded", _ => {
+	gsap.registerPlugin(ScrollTrigger)
+	gsap.to("#img", {
+		rotate: 360,
+		scale: 1.2,
+		duration: 5,
+		scrollTrigger: {
+			trigger: "#box-img", // للعنصر parent نقطه البدايه ويفضل تكون ال 
+			start: "top top", // هبدا من فين من نقطه البدايه دي
+			// end: "+=500px", // ودي تخلي الانيمشن يشتغل لحد ما اليوزر يوصل لحته معينه فالصفخه
+			end: "center top", // box هيخلص في بدايه نص ال 
+			// الي هو بيربط الانيميشن بالاسكرول scrub وكمان مش بتشتغل من غير ال 
+			//duration وكمان مش بتحتاج ل 
+			scrub: true, //  بيربط الانيميشن بالاسكرول
+			markers: true,
+			pin: true, // الصوره هتفضل ثابته علي الشاشه لحد ما الانيميشن يخلص
+		}
+	})
+})
+*/
