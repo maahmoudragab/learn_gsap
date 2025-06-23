@@ -428,3 +428,56 @@ document.addEventListener("DOMContentLoaded", () => {
   // })
 });
 */
+
+// todo ======== LESSON 11 ======== //
+// ? ScrollTrigger (Part 3) == 
+/** Scroll Horizontal
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  ScrollTrigger.create({
+    trigger: "#box1",
+    start: "top top",
+    end: "+=500",
+    markers: true,
+    horizontal: true, // markers ده هيقلب ال
+
+    onEnter: () => console.log("onEnter"),
+    onLeave: () => console.log("onLeave"),
+    onEnterBack: () => console.log("onEnterBack"),
+    onLeaveBack: () => console.log("onLeaveBack"),
+
+  });
+});
+*/
+
+/** Fake Horizontal Scroll 
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const slides = gsap.utils.toArray('.slide');
+
+  const horizontalScrollTween = gsap.to(slides, {
+    xPercent: -100 * (slides.length - 1),
+    ease: "none",// تشتغل صح containerAnimation لازم عشان
+    scrollTrigger: {
+      trigger: "#container",
+      start: "top top",
+      scrub: 1,
+      pin: true,
+    }
+  });
+
+  gsap.to("#smallBox", {
+    rotate: 360,
+    scrollTrigger: {
+      trigger: "#smallBox",
+      start: "top center",
+      end: "+=500",
+      scrub: 1,
+      markers: true,
+      containerAnimation: horizontalScrollTween,
+    }
+  });
+});
+*/

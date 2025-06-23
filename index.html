@@ -11,7 +11,6 @@
   <style>
     body {
       background: linear-gradient(to bottom, #b5f6ff, #4a5f72);
-      padding: 20px;
     }
 
     .title {
@@ -28,7 +27,7 @@
   </style>
 </head>
 
-<body>
+<body class="">
 
   <!-- ? ======== LESSON 01 ======== -->
   <!-- <h1 class="boldonse-regulr ">Hello GSAP</h1> -->
@@ -126,10 +125,31 @@
   </div> -->
 
   <!-- ? ======== LESSON 11 ======== -->
-  <div class="overflow-x-hidden text-2xl pt-[700px] min-h-[500vh]">
+  <!-- <div class="overflow-x-hidden text-2xl pt-[700px] min-h-[500vh]">
     <div id="box1" class="bg-black text-white w-fit p-10 rounded-xl">Box 1</div>
     <div id="box2" class="bg-white text-black w-fit p-10 rounded-xl">Box 2</div>
+  </div> -->
+
+  <!-- ? ======== LESSON 12 ======== -->
+  <!-- Scroll Horizontal 
+        <div class="ps-[100px] text-2xl h-screen flex w-fit">
+        <div id="box1" class="bg-black text-white w-screen p-10 rounded-xl">Box 1</div>
+        <div id="box2" class="bg-white text-black w-screen p-10 rounded-xl">Box 2</div>
+      </div> -->
+
+  <!-- Fake Horizontal Scroll 😍
+  <div class="text-2xl overflow-x-hidden">
+    <div class="h-screen w-screen bg-gray-400">spacer</div>
+    <div id="container" class="h-screen w-fit flex">
+      <div id="box1" class="slide w-screen p-10 rounded-xl text-white flex justify-center items-center text-4xl font-bold bg-gradient-to-br from-purple-600 via-pink-500 to-red-500">Box 1</div>
+      <div id="box2" class="slide slide2 w-screen p-10 rounded-xl bg-gradient-to-tr from-blue-600 via-cyan-400 to-green-400">
+        <div id="smallBox" class="size-20 bg-yellow-400 rounded-xl"></div>
+      </div>
+      <div id="box3" class="slide w-screen p-10 rounded-xl text-white flex justify-center items-center text-4xl font-bold bg-gradient-to-r from-orange-500 via-yellow-400 to-pink-400">Box 3</div>
+      <div id="box4" class="slide w-screen p-10 rounded-xl text-white flex justify-center items-center text-4xl font-bold bg-gradient-to-bl from-gray-800 via-gray-600 to-gray-400">Box 4</div>
+    </div>
   </div>
+  -->
 
   <!-- ✅ GSAP Core -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
