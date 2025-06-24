@@ -9,10 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    body {
-      background: linear-gradient(to bottom, #b5f6ff, #4a5f72);
-    }
-
     .title {
       font-size: 2rem;
       color: #ffffff;
@@ -24,10 +20,60 @@
       padding: 10px;
       max-width: 100px;
     }
+
+    #smooth-content {
+      width: 100%;
+      min-height: 300vh;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .07) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255, 255, 255, .07) 2px, transparent 2px),
+        linear-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px);
+      background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+      background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    }
+
+    /* Section One */
+    /* .box {
+      position: relative;
+      aspect-ratio: 1/1;
+      left: 50%;
+      transform: translate(-50%);
+    } 
+
+    .box-a {
+      top: 245px
+    }
+
+    .box-b {
+      top: 645px
+    }
+
+    .box-c {
+      top: 1045px
+    } 
+
+    .btn-scroll {
+      position: relative;
+      top: 100px;
+      left: 50%;
+      transform: translate(-50%);
+      padding: 10px 20px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: #ff5252;
+      border: 2px solid yellow;
+      border-radius: 10px;
+      box-shadow: 5px 5px 0px yellow;
+      cursor: pointer;
+    }*/
   </style>
 </head>
 
-<body class="">
+<body class="h-screen text-2xl bg-[#3f51b5]">
 
   <!-- ? ======== LESSON 01 ======== -->
   <!-- <h1 class="boldonse-regulr ">Hello GSAP</h1> -->
@@ -151,6 +197,49 @@
   </div>
   -->
 
+  <!-- ? ======== LESSON 15 ======== -->
+  <!-- Section One
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <button class="btn-scroll">Scroll To Yellow Box</button>
+      <div class="box box-a w-[100px] h-[100px] rounded-lg bg-red-500"></div>
+      <div class="box box-b w-[100px] h-[100px] rounded-lg bg-blue-500"></div>
+      <div class="box box-c w-[100px] h-[100px] rounded-lg bg-yellow-400"></div>
+    </div>
+  </div>-->
+
+  <!-- Section Two
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <div class="flex gap-10 h-screen justify-center items-center">
+        <div class="box box-a w-[100px] h-[100px] rounded-lg bg-red-500"></div>
+        <div class="box box-b w-[100px] h-[100px] rounded-lg bg-blue-500"></div>
+        <div class="box box-c w-[100px] h-[100px] rounded-lg bg-yellow-400"></div>
+      </div>
+    </div>
+  </div>-->
+
+  <!-- Section Three
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <div class="flex gap-50 h-[200vh] justify-center items-center">
+        <div class="h-[437px] w-[464px] overflow-hidden relative">
+          <img src="img/02.jpg" class="" data-speed="auto">
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- ? ======== LESSON 16 ======== -->
+  <!-- <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <div id="container" class="relative top-[500px] border-2 h-[58vh] flex flex-col justify-center">
+        <div id="red" class="box w-[100px] h-[100px] rounded-lg bg-red-500"></div>
+        <div id="yellow" class="box w-[100px] h-[100px] rounded-lg bg-yellow-400"></div>
+      </div>
+    </div>
+  </div> -->
+
   <!-- ✅ GSAP Core -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <!-- ✅ CustomEase (مطلوب لـ CustomBounce) -->
@@ -161,6 +250,8 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/GSDevTools.min.js"></script>
   <!-- ✅ ScrollTrigger -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <!-- ScrollSmoother requires ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
   <script src="main.js"></script>
 </body>
 

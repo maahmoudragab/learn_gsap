@@ -429,7 +429,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 */
 
-// todo ======== LESSON 11 ======== //
+// todo ======== LESSON 12 ======== //
 // ? ScrollTrigger (Part 3) == 
 /** Scroll Horizontal
 document.addEventListener("DOMContentLoaded", () => {
@@ -480,4 +480,89 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+*/
+
+// todo ======== LESSON 13 ======== //
+// ? Community In Gsap
+
+// todo ======== LESSON 14 ======== //
+// ? Gsap In React
+
+// todo ======== LESSON 15 ======== //
+// ? ScrollSmoother (Part 1)
+/**
+document.addEventListener("DOMContentLoaded", event => {
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+  // Section One
+  // const btn = document.querySelector(".btn-scroll")
+  // gsap.to(".btn-scroll", {
+  //   scale: 1.2,
+  //   y: 100,
+  //   scrollTrigger: {
+  //     trigger: "#smooth-content",
+  //     markers: true,
+  //     start: "top top",
+  //     end: "12% 10%",
+  //     scrub: true
+  //   }
+  // })
+  // const smoother = ScrollSmoother.create({
+  //   smooth: 2,
+  // })
+  // btn.addEventListener("click", () => {
+  //   smoother.scrollTo(".box-c", true, "top center") // true = معناها ان هيبقا فيه سلاسه اثناء الاسكرول
+  // })
+
+  // Section Two
+  // const smoother = ScrollSmoother.create({
+  //   smooth: 2,
+  //   effects: true
+  // })
+  // smoother.effects(".box", {
+  //   lag: i => (i + 1) * 1, // بس بترجع تاني لمكانها اول ما اوقف سكرول y بتخلي العناصر تتحرك في اتجاه 
+  // // speed: i => (i + 1) * .2 // مش بترجع تاني لمكانها
+  // })
+
+  // Section Three
+  // const smoother = ScrollSmoother.create({
+  //   wrapper: "#smooth-wrapper",
+  //   content: "#smooth-content",
+  //   smooth: 2,
+  //   effects: true
+  // })
+})
+*/
+
+// todo ======== LESSON 16 ======== //
+// ? ScrollSmoother (Part 2)
+/**
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+
+  const smoother = ScrollSmoother.create({
+    smooth: 3, // بس decktop هنا ده بشتعل على 
+    // smoothTouch: 3, // كده بيشتغل هلي الموبايل كمان
+    ignoreMobileResize: true, // ودي معناها ان لو حصل تغير في حجم الشاشه تجهاله طب ليه؟ عشان ببساطه حاجه زي الشريط العلوي بتاع المتصحفه ممكن وهو بيظهر وبيختفي يعمل لغبطه ولاج في شكل الانيمشن
+    normalizeScroll: true, // وده معناه اني بثبت الشريط العلوي بتاع المتصفح ولكن هذا الميزه لا تدعم جميع الاجهزه
+  })
+
+  const tl = gsap.timeline({
+    defaults: {
+      ease: "none"
+    },
+    scrollTrigger: {
+      trigger: "#container",
+      start: "top top",
+      scrub: true,
+      markers: true,
+      pin: true
+    }
+  }).to("#red", {
+    x: () => window.innerWidth - document.querySelector("#red").offsetWidth - 18,
+    rotate: 360,
+  }).to("#yellow", {
+    x: () => window.innerWidth - document.querySelector("#red").offsetWidth - 18,
+    rotate: 360,
+  }, "<")
+})
 */
