@@ -606,8 +606,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // todo ======== LESSON 18 ======== //
 // ? SplitText
- 
+/**
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(SplitText)
 
+  document.fonts.ready.then(() => { // ل فونت مثلا ميحصلش مشكله او لاج في النص ف انا بستني الفونت يحمل بعد كده يتنفذ الفانكشنimport ده عشان لو انا عامل 
+    const split = SplitText.create("h1", {
+      // type: "lines,words,chars", // lines || words || chars
+      // wordsClass: "word", // word هضيف كلاس علي كل كلمه باسم
+      // wordsClass: "word++", // word كل كلمة بتاخد كلاس مختلف بيبقا جمبه رقم متغير وكمان الكلاس الي اسمه
 
+      type: "words,chars",
+      smartWrap: true, // ده مش هبخلي الكلمه ينفع تنزل علي سطرين
+      ignore: "sub", // هنا هيتجاهل العنصر ده وكمان مش هيعمله انيميشن
 
+      // type: "lines",
+      // autoSplit: true, // بتهندل شكل السطور لما اجي اعمل ريسايز
+      // onSplit: (self) => {
+      //   console.log(self)
+      //   return gsap.from(self.lines, { // حطيته هنا عشان يتشغل لما اعمل ريسايز
+      //     opacity: 0,
+      //     y: 100,
+      //     stagger: { each: 0.05, from: "random" },
+      //     ease: "power2.inOut",
+      //     duration: 1
+      //   })
+      // }
+    })
 
+    // animation 1
+    // gsap.from(split.words, {
+    //   opacity: 0,
+    //   y: 100,
+    //   x: -100,
+    //   stagger: .1,
+    //   duration : 1
+    // })
+
+    // animation 2
+    gsap.from(split.words, {
+      opacity: 0, y: 100,
+      stagger: { each: 0.05, from: "random" },
+      ease: "power2.inOut", duration: 1,
+      onComplete: () => {
+        split.revert() // ده اول ما اخلص الانيمشن بتاعي هيمسح الزيادات الي عملها في العنصر 
+        // بينضف وراه من الاخر
+      }
+    })
+  })
+})
+*/
