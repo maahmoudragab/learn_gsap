@@ -335,12 +335,12 @@ document.addEventListener("DOMContentLoaded", _ => {
     scale: 1.2,
     duration: 5,
     scrollTrigger: {
-      trigger: "#box-img", // للعنصر parent نقطه البدايه ويفضل تكون ال 
+      trigger: "#box-img", // للعنصر parent نقطه البدايه ويفضل تكون ال
       start: "top top", // هبدا من فين من نقطه البدايه دي
       // end: "+=500px", // ودي تخلي الانيمشن يشتغل لحد ما اليوزر يوصل لحته معينه فالصفخه
-      end: "center top", // box هيخلص في بدايه نص ال 
-      // الي هو بيربط الانيميشن بالاسكرول scrub وكمان مش بتشتغل من غير ال 
-      //duration وكمان مش بتحتاج ل 
+      end: "center top", // box هيخلص في بدايه نص ال
+      // الي هو بيربط الانيميشن بالاسكرول scrub وكمان مش بتشتغل من غير ال
+      //duration وكمان مش بتحتاج ل
       scrub: true, //  بيربط الانيميشن بالاسكرول
       markers: true,
       pin: true, // الصوره هتفضل ثابته علي الشاشه لحد ما الانيميشن يخلص
@@ -356,7 +356,7 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
   // طرق الاستخدام
-  // tween داخل ال 
+  // tween داخل ال
   const tween = gsap.to("#box1", {
     rotate: 360,
   });
@@ -393,7 +393,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   })
 
-  // timeline 1 داخل الـ 
+  // timeline 1 داخل الـ
   // const tl = gsap.timeline({
   //   // الكود الي بكتبه هنا بيطبف علي جميع العناصر الي بتستخدم التايم لاين ده
   //   scrollTrigger: {
@@ -410,7 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //   rotate: 360,
   // })
 
-  // timeline 2 داخل الـ 
+  // timeline 2 داخل الـ
   // const tl = gsap.timeline()
   // tl.to("#box1", {
   //   rotate: 360,
@@ -430,7 +430,7 @@ document.addEventListener("DOMContentLoaded", () => {
 */
 
 // todo ======== LESSON 12 ======== //
-// ? ScrollTrigger (Part 3) == 
+// ? ScrollTrigger (Part 3) ==
 /** Scroll Horizontal
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -451,7 +451,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 */
 
-/** Fake Horizontal Scroll 
+/** Fake Horizontal Scroll
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -519,7 +519,7 @@ document.addEventListener("DOMContentLoaded", event => {
   //   effects: true
   // })
   // smoother.effects(".box", {
-  //   lag: i => (i + 1) * 1, // بس بترجع تاني لمكانها اول ما اوقف سكرول y بتخلي العناصر تتحرك في اتجاه 
+  //   lag: i => (i + 1) * 1, // بس بترجع تاني لمكانها اول ما اوقف سكرول y بتخلي العناصر تتحرك في اتجاه
   // // speed: i => (i + 1) * .2 // مش بترجع تاني لمكانها
   // })
 
@@ -540,7 +540,7 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
   const smoother = ScrollSmoother.create({
-    smooth: 3, // بس decktop هنا ده بشتعل على 
+    smooth: 3, // بس decktop هنا ده بشتعل على
     // smoothTouch: 3, // كده بيشتغل هلي الموبايل كمان
     ignoreMobileResize: true, // ودي معناها ان لو حصل تغير في حجم الشاشه تجهاله طب ليه؟ عشان ببساطه حاجه زي الشريط العلوي بتاع المتصحفه ممكن وهو بيظهر وبيختفي يعمل لغبطه ولاج في شكل الانيمشن
     normalizeScroll: true, // وده معناه اني بثبت الشريط العلوي بتاع المتصفح ولكن هذا الميزه لا تدعم جميع الاجهزه
@@ -566,3 +566,48 @@ document.addEventListener("DOMContentLoaded", () => {
   }, "<")
 })
 */
+
+// todo ======== LESSON 17 ======== //
+// ? quickSetter, quickTo [Mouse Follow]
+/**
+document.addEventListener("DOMContentLoaded", () => {
+  // ده عشان الماوس يبقا في نص البوكس
+  gsap.set("#box", { xPercent: -50, yPercent: -50 })
+
+  // الطريقه الاولى ومينفعش استخدم فيها انيمشن وكمان البيرفورمنس مش بيكون احسن حاجه
+  // window.addEventListener("mousemove", e => {
+  //   gsap.set("#box", { x: e.pageX, y: e.pageY })
+  // })
+
+  // الطريقه التانيه والافضل بسبب انها بتحسن في اداء البيرفورمنس بس برضو مينفعش استخدم فيها انيميشن
+  // const xSetter = gsap.quickSetter("#box", "x", "px") // "وحدة القياس" - "االخاصيه" - "العنصر"
+  // const ySetter = gsap.quickSetter("#box", "y", "px") // "وحدة القياس" - "االخاصيه" - "العنصر"
+  // window.addEventListener("mousemove", e => {
+  //   xSetter(e.pageX)
+  //   ySetter(e.pageY)
+  // })
+
+  // الطريقه التالته وبتحسن من البيرفورمنس وكمان اقدر اعمل انيميشن
+
+  const xQuickTo = gsap.quickTo("#box", "x", { // gsap.to شبه ال 
+    duration: 0.5,
+    ease: "power3"
+  })
+  const yQuickTo = gsap.quickTo("#box", "y", {
+    duration: 0.5,
+    ease: "power3"
+  })
+  window.addEventListener("mousemove", e => {
+    xQuickTo(e.pageX)
+    yQuickTo(e.pageY)
+  })
+})
+*/
+
+// todo ======== LESSON 18 ======== //
+// ? SplitText
+ 
+
+
+
+
