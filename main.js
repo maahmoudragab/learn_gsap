@@ -589,7 +589,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // الطريقه التالته وبتحسن من البيرفورمنس وكمان اقدر اعمل انيميشن
 
-  const xQuickTo = gsap.quickTo("#box", "x", { // gsap.to شبه ال 
+  const xQuickTo = gsap.quickTo("#box", "x", { // gsap.to شبه ال
     duration: 0.5,
     ease: "power3"
   })
@@ -610,7 +610,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(SplitText)
 
-  document.fonts.ready.then(() => { // ل فونت مثلا ميحصلش مشكله او لاج في النص ف انا بستني الفونت يحمل بعد كده يتنفذ الفانكشنimport ده عشان لو انا عامل 
+  document.fonts.ready.then(() => { // ل فونت مثلا ميحصلش مشكله او لاج في النص ف انا بستني الفونت يحمل بعد كده يتنفذ الفانكشنimport ده عشان لو انا عامل
     const split = SplitText.create("h1", {
       // type: "lines,words,chars", // lines || words || chars
       // wordsClass: "word", // word هضيف كلاس علي كل كلمه باسم
@@ -649,10 +649,60 @@ document.addEventListener("DOMContentLoaded", () => {
       stagger: { each: 0.05, from: "random" },
       ease: "power2.inOut", duration: 1,
       onComplete: () => {
-        split.revert() // ده اول ما اخلص الانيمشن بتاعي هيمسح الزيادات الي عملها في العنصر 
+        split.revert() // ده اول ما اخلص الانيمشن بتاعي هيمسح الزيادات الي عملها في العنصر
         // بينضف وراه من الاخر
       }
     })
+  })
+})
+*/
+
+// todo ======== LESSON 19 ======== //
+// ? Cheat Sheet -- gspa صفحه في الدوك بتجمع اهم الخواص في
+
+// todo ======== LESSON 20 ======== //
+// ? KeyFrame
+/**
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // object
+  // gsap.to(".box", {
+  //   // كلها keyframes لو كتبت اي خواص هنا هتتطبق علي
+  //   // duration: 2, // دي كلها هتاخد ثايتين بس keyframesيعني ال 
+  //   delay: 1,
+  //   rotate: 360,
+  //   transformOrigin: "center",
+  //   duration: 3,
+  //   keyframes: [
+  //     { x: 300, ease: "power1.inOut", backgroundColor: "red" }, // ده بس frame هتطبق علي ال
+  //     { y: 300 },
+  //     { x: 0, backgroundColor: "#3b82f6" }, // -delay لو انا عايز اخليها تبدا مع الي فوق بحط 
+  //     { y: 0 },
+  //   ]
+  // })
+
+  // css نسبه مئويه زي 
+  gsap.to(".box", {
+    delay: 1,
+    rotate: 360,
+    transformOrigin: "center",
+    duration: 3,
+    keyframes: {
+      "25%": { x: 300, y: 0 },
+      "50%": { y: 300, x: 300 },
+      "75%": { x: 0, y: 300 },
+      "100%": { y: 0, y: 0 },
+      // ودي الميزه الي في النسبه المئويه
+      // easeEach: "elastic", // بتاعه ease ال keyframes الي لازم ادي لكل object ده بعكس ال ease هياخد ال keyframes ودي ببساطه معناها ان كل 
+    },
+    scrollTrigger: {
+      trigger: ".trigger",
+      start: "center center",
+      end: "+=2000",
+      scrub: 1,
+      pin: true,
+    }
   })
 })
 */
