@@ -706,3 +706,34 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 })
 */
+
+// todo ======== LESSON 21 ======== //
+// ? Svg - Skiped
+
+// todo ======== LESSON 22 ======== //
+// ? Observer
+/**
+  - فده بيكون متغير بسرعه جدا وبتعمل مئات المرات في الثانيه mousemove event والي لو انا مثلا عندي حاجه زي ال debounce بس الفكره ان ده بيكون احسن لل البيرفورمنس لو انا مستخدم EventListener بيستدم ال
+  - في نفس في مره واحده Event ينفع استهدف عادي اكتر من
+  - EventListener الي لازم تحسبها يدوي في  velocity , delta  بيديك معلومات جهزة زي 
+  - وكمان بيدعم 
+
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(Observer);
+
+  // Observer.create({
+  //   target: ".pink",
+  //   onClick: () => console.log("Clicked Pink"), // لما ادوس علي البوكس البينك الكود ده هيتنفذ
+  //   // wheel,touch,pointer بيكون default type عشان يشتغل بس ال typeلازم احدد ال 
+  //   type: "wheel,touch,pointer", // onMove مش هيشتغل ال pointerلو شيلت ال 
+  //   onMove: () => console.log("Mouse move"), // لما ادوس علي البوكس البينك الكود ده هيتنفذ
+  // })
+  Observer.create({
+    target: window,
+    type: "wheel,touch,scroll,pointer",
+    tolerance: 200, // ده معناه ان اي حركه سكرول اقل من متين بيسكل مش هينفذ ال الفانكشنز الي مكتوبه
+    onUp: () => console.log("Scroll Up"),
+    onDown: () => console.log("Scroll Down"),
+  })
+})
+*/
